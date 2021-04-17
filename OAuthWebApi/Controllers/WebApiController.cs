@@ -7,31 +7,33 @@ using System.Web.Http;
 
 namespace OAuthWebApi.Controllers
 {
-    public class ValuesController : ApiController
+    [Authorize]
+    public class WebApiController : ApiController
     {
-        // GET api/values
+  
+        // GET api/WebApi  
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "Hello REST API", "I am Authorized" };
         }
 
-        // GET api/values/5
+        // GET api/WebApi/5  
         public string Get(int id)
         {
-            return "value";
+            return "Hello Authorized API with ID = " + id;
         }
 
-        // POST api/values
+        // POST api/WebApi  
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT api/values/5
+        // PUT api/WebApi/5  
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/WebApi/5  
         public void Delete(int id)
         {
         }
